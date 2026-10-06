@@ -67,7 +67,7 @@ int main(void)
             
             isBlinking3 = !isBlinking3;
             //CyDelay(500);
-            SW2_debounce = 0; //resets the alternative route
+            SW2_debounce = 0; //resets the alternative route (allows processor to keep running)
             
             SW2_tally++;
             
@@ -103,7 +103,7 @@ int main(void)
         }
         
         
-        // A time check, so every 500ms toggle LEDs
+        // A time check, so every 250ms toggle LEDs
         if (timeCount >= 250)
         {
             if(isBlinking4 == 1)
