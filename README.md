@@ -1,12 +1,32 @@
-# Multi-Rate-Interactive-State-Machine-Embedded-Controller
-The system is an interactive hardware layout which includes a character LCD dashboard, pushbuttons, and a duel-channel LED array.  By engineering an asynchronous software scheduling engine, the project manages multiple things such as:
-##
-- Time interval text scrolling,
-- Switching cycles
-- LED alternative frequencies. 
-##
-All of these implementations were made for the processor to never freeze while running. The application features an advanced runtime state-tracking which allows users to toggle an alternating "railroad-style" blinking pattern. With this implementation users are able to:
-##
-- Freeze sequence mid-execution on either light (LED3 or LED4)
-- View a live button-press counter (tallies)
-- Trigger a kill-switch system (SW3) that would stop the LEDs from processing the pattern.
+# Multi-Rate Interactive State Machine Embedded Controller
+
+An embedded interactive control system built for the Cypress PSoC 5LP platform. The project features an asynchronous software scheduling engine running non-blocking tasks to manage real-time UI text scrolling, dynamic switching cycles, and a dual-channel LED array.
+
+---
+
+## Technical Highlights & Features
+* **Asynchronous Task Scheduler:** Engineered a custom non-blocking scheduler in C ensuring zero processor freezes while concurrently running LCD scrolling, LED frequency loops, and input tracking.
+* **State Machine & Control System:** Features runtime state tracking to manage alternating "railroad-style" blinking sequence.
+* **Interactive Controls:**
+  * **Freeze Mode:** Pause execution mid-sequence on individual lights (LED3 or LED4).
+  * **Event Tally Counter:** Real-time button-press logging displayed live on the LCD dashboard.
+  * **Emergency Stop (Kill Switch):** Immediate system halt mechanism via push-button trigger (`SW3`).
+
+---
+
+## Hardware Architecture & Hardware Mapping
+* **Microcontroller:** Cypress PSoC 5LP (CY8CKIT-050 Development Kit)
+* **Language:** C / PSoC Creator API
+* **Peripherals:** Character LCD (16x2), Pushbuttons (`SW2`, `SW3`), Dual-Channel LED Array (`LED3`, `LED4`)
+
+### Schematics & Pin Assignment
+![TopDesign Schematic](TopDesign%20Schematic.png)
+![Pin Layout](Pin%20layout.png)
+
+---
+
+## Project Hardware Results
+
+| LED State 1 | LED State 2 |
+| :---: | :---: |
+| ![LED4 Active](LED4.jpeg) | ![LED3 Active](LED3.jpeg) |
